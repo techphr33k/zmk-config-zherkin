@@ -33,7 +33,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-           QWERTY  {
+            QWERTY {
             bindings = <
                 &kp Q      &kp W     	&kp E     	&kp R     	&kp T    	    &kp Y     	    &kp U     	&kp I     	    &kp O     	   &kp P
                 &lt 1 A    &lt 2 S      &kp D     	&kp F     	&mt LSHIFT G    &mt RSHIFT H    &kp J     	&kp K     	    &lt 5 L        &lt 4 SEMI
@@ -44,42 +44,42 @@
             bindings = <
                 &none    &kp DEL    &kp K_UNDO  &kp CAPS     &kp K_FIND      &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
                 &trans   &kp K_CUT  &kp K_COPY  &kp K_PASTE  &none           &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
-                &none    &none      &none       &kp PIPE     &kp ENTER       &none       &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
+                &none    &none      &none       &kp PIPE     &kp ENTER       &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
             >;
         };
                 L2 {
             bindings = <
-                &none    &none    &none    &none    &none    &none     &none    &none       &kp SQT        &kp DQT
+                &none    &none    &none    &none    &none    &none     &none    &kp INS     &kp SQT        &kp DQT
                 &none    &trans   &none    &none    &none    &none     &kp LEFT &kp DOWN    &kp UP         &kp RIGHT 
                 &none    &none    &none    &none    &none    &none     &kp HOME &kp PG_UP   &kp PG_DN      &kp END
             >;
         };
                 L3 {
             bindings = <
-                &bootloader     &none           &bt BT_PRV      &bt BT_NXT    &none           &none           &none    &none    &none    &none 
+                &bootloader     &sys_reset      &bt BT_PRV      &bt BT_NXT    &none           &none           &none    &none    &none    &none 
                 &bt BT_CLR_ALL  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4    &none    &none    &none    &none     
-                &trans          &none           &none           &none         &none           &none           &none    &none    &none    &none
+                &trans          &to QWERTY      &none           &none         &none           &none           &none    &none    &none    &none
             >;
         };
                 R1 {
             bindings = <
-                &kp ESC  &none    &none    &none    &none    &none     &none    &none    &none    &none 
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &trans 
-                &kp TAB  &none    &none    &none    &none    &none     &none    &none    &none    &none 
+                &kp ESC    &kp N7      &kp N8      &kp N9      &kp PLUS    &none     &none    	&none    &kp C_NEXT &kp C_PP 
+                &kp N0     &kp N4      &kp N5      &kp N6      &kp DOT     &kp RSHFT &kp EQUAL &none    &trans   	&kp LA(TAB) 
+                &kp TAB    &kp N1      &kp N2      &kp N3      &kp MINUS   &none     &none     &none    &none      &none 
             >;
         };
                 R2 {
             bindings = <
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
-                &none    &none    &none    &none    &none    &none     &none    &none    &trans   &none 
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
+                &none  	&kp ESC  &kp AMPS 	&kp ASTRK 	&none    &none     	&none    &kp GRAVE  &none  		&none
+                &none  	&kp DLLR &kp PRCNT 	&kp CARET   &none    &none     	&none    &none     	&none	 	&trans 
+                &none   &kp EXCL &kp AT     &kp HASH    &none    &none    	&none    &none    	&none 		&none
             >;
         };
                 R3 {
             bindings = <
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
-                &none    &none    &none    &none    &none    &none     &none    &none    &none    &trans
+                &kp F1        &kp F2        &kp F3       &kp F4       &kp F5      &kp F6      &none        &none        &none            &none
+                &kp F7        &kp F8        &kp F9       &kp F10      &kp F11     &kp F12     &none        &none        &none            &trans 
+                &none         &none         &none        &none        &none       &none       &none        &none        &none            &none
             >;
         };
     };
