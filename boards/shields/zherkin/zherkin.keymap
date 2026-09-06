@@ -44,7 +44,7 @@
             bindings = <
                 &none    &kp DEL    &kp K_UNDO  &kp CAPS     &kp K_FIND      &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
                 &trans   &kp K_CUT  &kp K_COPY  &kp K_PASTE  &none           &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
-                &none    &none      &none       &kp PIPE     &kp ENT         &none       &kp LBKT    &kp RBKT    &kp UNDER   &kp RET 
+                &none    &none      &none       &kp PIPE     &kp ENTER       &none       &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
             >;
         };
                 L2 {
@@ -80,6 +80,7 @@
                 &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
                 &none    &none    &none    &none    &none    &none     &none    &none    &none    &none 
                 &none    &none    &none    &none    &none    &none     &none    &none    &none    &trans
+            >;
         };
     };
 };

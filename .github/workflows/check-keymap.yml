@@ -1,0 +1,43 @@
+name: Check keymap and checker
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # Fixed header fixtures make checker regressions reproducible. The
+      # firmware build separately resolves the configuration's West manifest.
+      - name: Check out ZMK test headers
+        uses: actions/checkout@v4
+        with:
+          repository: zmkfirmware/zmk
+          ref: 641514a97db345f499dd50b0360e594270f008fe
+          path: .test-deps/zmk
+          sparse-checkout: |
+            app/dts
+            app/include
+      - name: Check out matching Zephyr test headers
+        uses: actions/checkout@v4
+        with:
+          repository: zmkfirmware/zephyr
+          ref: 10ba6d0cb38bc3d258775d27982f707599320085
+          path: .test-deps/zephyr
+          sparse-checkout: include
+      - name: Run unit and compiler integration tests
+        env:
+          ZMK_TEST_SRC: ${{ github.workspace }}/.test-deps/zmk
+          ZMK_TEST_CPP: gcc
+        run: python -B -m unittest discover -s tests -v
+      - name: Check keymap syntax
+        run: python zmk_check.py boards/shields/zherkin/zherkin.keymap --syntax-only
