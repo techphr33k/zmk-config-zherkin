@@ -30,7 +30,7 @@
         };
         combo_space2 {
             timeout-ms = <50>;
-            key-positions = <24 26>;
+            key-positions = <23 25>;
             bindings = <&kp SPACE>;
         };
  };
@@ -61,9 +61,9 @@
         };
                 L3 {
             bindings = <
-                &bootloader     &sys_reset      &bt BT_PRV      &bt BT_NXT    &none           &none           &none    &none    &none    &none 
-                &bt BT_CLR_ALL  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4    &none    &none    &none    &none     
-                &trans          &to QWERTY      &none           &none         &none           &none           &none    &none    &none    &none
+                &bootloader     &sys_reset      &bt BT_PRV     &bt BT_NXT    &none           &none            &none    &none    &none    &none 
+                &bt BT_CLR_ALL  &none           &none          &none         &none           &none            &none    &none    &none    &none     
+                &trans          &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4     &none    &none    &none    &to QWERTY
             >;
         };
                 R1 {
