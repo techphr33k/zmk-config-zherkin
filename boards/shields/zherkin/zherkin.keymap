@@ -35,68 +35,6 @@
         };
  };
 
-// MACROS
-
-/ {
-    macros {
-        M_COPY: M_COPY {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LCTRL>,
-                 <&macro_tap &kp C>,
-                 <&macro_release &kp LCTRL>;
-        };
-
-        M_PASTE: M_PASTE {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LCTRL>,
-                 <&macro_tap &kp V>,
-                 <&macro_release &kp LCTRL>;
-        };
-
-        M_CUT: M_CUT {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LCTRL>,
-                 <&macro_tap &kp X>,
-                 <&macro_release &kp LCTRL>;
-        };
-
-        M_UNDO: M_UNDO {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LCTRL>,
-                 <&macro_tap &kp Z>,
-                 <&macro_release &kp LCTRL>;
-        };
-
-        M_CLIP: M_CLIP {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LGUI>,
-                 <&macro_tap &kp V>,
-                 <&macro_release &kp LGUI>;
-        };
-
-        M_FIND: M_FIND {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                 <&macro_press &kp LCTRL>,
-                 <&macro_tap &kp F>,
-                 <&macro_release &kp LCTRL>;
-        };
-    };
-};
-
-
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -109,9 +47,9 @@
         };
                 L1 {
             bindings = <
-                &none    &kp DEL    &M_UNDO  &kp CAPS     &M_FIND         &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
-                &trans   &M_CUT     &M_COPY  &M_PASTE     &M_CLIP         &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
-                &none    &none      &none    &kp PIPE     &kp ENTER       &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
+                &none    &kp DEL    &kp LC(Z)  &kp CAPS   &kp LC(F)     &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
+                &trans   &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LGUI(V)   &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
+                &none    &none      &none    &kp PIPE     &kp ENTER     &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
             >;
         };
                 L2 {
