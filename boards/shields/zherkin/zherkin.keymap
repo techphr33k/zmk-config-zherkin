@@ -12,11 +12,11 @@
 #define  R3 6
 
 &lt {
-    tapping-term-ms = <160>;     // LAYER TAP SPEED default=200
+    tapping-term-ms = <180>;     // LAYER TAP SPEED default=200
 };
 
 &mt {
-    tapping-term-ms = <160>;    // MOD-TAP SPEED default=200
+    tapping-term-ms = <180>;    // MOD-TAP SPEED default=200
 };
 
 / {
@@ -35,6 +35,68 @@
         };
  };
 
+// MACROS
+
+/ {
+    macros {
+        M_COPY: M_COPY {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LCTRL>,
+                 <&macro_tap &kp C>,
+                 <&macro_release &kp LCTRL>;
+        };
+
+        M_PASTE: M_PASTE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LCTRL>,
+                 <&macro_tap &kp V>,
+                 <&macro_release &kp LCTRL>;
+        };
+
+        M_CUT: M_CUT {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LCTRL>,
+                 <&macro_tap &kp X>,
+                 <&macro_release &kp LCTRL>;
+        };
+
+        M_UNDO: M_UNDO {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LCTRL>,
+                 <&macro_tap &kp Z>,
+                 <&macro_release &kp LCTRL>;
+        };
+
+        M_CLIP: M_CLIP {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LGUI>,
+                 <&macro_tap &kp V>,
+                 <&macro_release &kp LGUI>;
+        };
+
+        M_FIND: M_FIND {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                 <&macro_press &kp LCTRL>,
+                 <&macro_tap &kp F>,
+                 <&macro_release &kp LCTRL>;
+        };
+    };
+};
+
+
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -47,9 +109,9 @@
         };
                 L1 {
             bindings = <
-                &none    &kp DEL    &kp K_UNDO  &kp CAPS     &kp K_FIND      &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
-                &trans   &kp K_CUT  &kp K_COPY  &kp K_PASTE  &none           &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
-                &none    &none      &none       &kp PIPE     &kp ENTER       &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
+                &none    &kp DEL    &M_UNDO  &kp CAPS     &M_FIND         &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
+                &trans   &M_CUT     &M_COPY  &M_PASTE     &M_CLIP         &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
+                &none    &none      &none    &kp PIPE     &kp ENTER       &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
             >;
         };
                 L2 {
@@ -61,30 +123,30 @@
         };
                 L3 {
             bindings = <
-                &bootloader     &sys_reset      &bt BT_PRV     &bt BT_NXT    &none           &none            &none    &none    &none    &none 
-                &bt BT_CLR_ALL  &none           &none          &none         &none           &none            &none    &none    &none    &none     
+                &bootloader     &sys_reset      &none          &none         &none           &none            &none    &none    &none    &none 
+                &none           &none           &none          &none         &none           &none            &none    &none    &none    &none     
                 &trans          &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4     &none    &none    &none    &to QWERTY
             >;
         };
                 R1 {
             bindings = <
-                &kp ESC    &kp N7      &kp N8      &kp N9      &kp PLUS    &none     &none    	&none    &kp C_NEXT &kp C_PP 
-                &kp N0     &kp N4      &kp N5      &kp N6      &kp DOT     &kp RSHFT &kp EQUAL &none    &trans   	&kp LA(TAB) 
-                &kp TAB    &kp N1      &kp N2      &kp N3      &kp MINUS   &none     &none     &none    &none      &none 
+                &kp ESC    &kp N7      &kp N8      &kp N9      &kp PLUS    &none     &none    	&none   &none       &none 
+                &kp N0     &kp N4      &kp N5      &kp N6      &kp DOT     &kp RSHFT &kp EQUAL &none    &none   	&trans 
+                &kp TAB    &kp N1      &kp N2      &kp N3      &kp MINUS   &none     &none     &none    &none       &none 
             >;
         };
                 R2 {
             bindings = <
-                &none  	&kp ESC  &kp AMPS 	&kp ASTRK 	&none    &none     	&none    &kp GRAVE  &none  		&none
-                &none  	&kp DLLR &kp PRCNT 	&kp CARET   &none    &none     	&none    &none     	&none	 	&trans 
-                &none   &kp EXCL &kp AT     &kp HASH    &none    &none    	&none    &none    	&none 		&none
+                &none  	 &kp ESC  &kp AMPS 	    &kp ASTRK 	&none    &none     	&none    &kp GRAVE  &kp C_NEXT &kp C_PP 
+                &kp CAPS &kp DLLR &kp PRCNT 	&kp CARET   &none    &none     	&none    &none     	&trans 	 	&kp LA(TAB)
+                &none    &kp EXCL &kp AT        &kp HASH    &none    &none    	&none    &none    	&none 		&none
             >;
         };
                 R3 {
             bindings = <
                 &kp F1        &kp F2        &kp F3       &kp F4       &kp F5      &kp F6      &none        &none        &none            &none
-                &kp F7        &kp F8        &kp F9       &kp F10      &kp F11     &kp F12     &none        &none        &none            &trans 
-                &none         &none         &none        &none        &none       &none       &none        &none        &none            &none
+                &kp F7        &kp F8        &kp F9       &kp F10      &kp F11     &kp F12     &none        &none        &none            &none 
+                &none         &none         &none        &none        &none       &none       &none        &none        &none            &trans
             >;
         };
     };
