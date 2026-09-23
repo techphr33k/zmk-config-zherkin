@@ -47,9 +47,9 @@
         };
                 L1 {
             bindings = <
-                &none    &kp DEL    &kp LC(Z)  &kp CAPS   &kp LC(F)     &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
-                &trans   &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LGUI(V)   &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
-                &none    &none      &none    &kp PIPE     &kp ENTER     &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
+                &none    &kp DEL    &kp LC(Z)  &kp CAPS   &kp LC(F)         &kp PLUS    &kp LBRC    &kp RBRC    &kp TILDE   &kp BSPC 
+                &trans   &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LEFT_GUI(V)   &kp EQUAL   &kp LPAR    &kp RPAR    &kp LT      &kp GT 
+                &none    &none      &none    &kp PIPE     &kp ENTER         &kp MINUS   &kp LBKT    &kp RBKT    &kp UNDER   &kp RET
             >;
         };
                 L2 {
