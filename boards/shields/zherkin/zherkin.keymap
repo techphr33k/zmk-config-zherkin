@@ -33,6 +33,7 @@
             key-positions = <23 25>;
             bindings = <&kp SPACE>;
         };
+    };
  };
 
     keymap {
@@ -88,4 +89,3 @@
             >;
         };
     };
-};
